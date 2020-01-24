@@ -32,7 +32,7 @@ end
 """
 	felpropagate(s0,ω,𝑈,t;q=21)
 
-Felsenstein's model of evolution
+Felsenstein's model of evolution for independent sites.
 """
 function felpropagate(s0,ω,𝑈,t;q=21)
 	f1 = exp(-𝑈*t)*s0 .+ (1-exp(-𝑈*t))*ω[1]

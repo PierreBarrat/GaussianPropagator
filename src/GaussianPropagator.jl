@@ -9,6 +9,7 @@ using Optim
 import Base:exp, ^, +, *
 export *, StatPropagator, PairwiseStat
 
+# Matrix vector multiplication using the eigen decomposition
 function *(F::LinearAlgebra.Eigen, x::Array{Float64,1})
 	y = zeros(Float64,length(x))
 	for i in 1:length(x)
@@ -24,6 +25,11 @@ function *(F::LinearAlgebra.Eigen, x::Array{Float64,1})
 	return y
 end
 
+"""
+	struct StatPropagator
+
+Object used to propagate a pairwise statistic `C` and `m` (*i.e.* correlations and magnetizations) from a point `x0`. 
+"""
 struct StatPropagator
 	m::Array{Float64,1} # Mean at equilibrium
 	C::LinearAlgebra.Eigen # Eig decomposition of the equilibrium C
